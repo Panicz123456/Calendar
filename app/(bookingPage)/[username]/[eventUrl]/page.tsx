@@ -1,6 +1,11 @@
+
+
+import { Calendar } from "@/app/components/bookingForm/Calendar";
+import { RendarCalendar } from "@/app/components/bookingForm/RenderCalendar";
 import prisma from "@/app/lib/db";
 import { requireUser } from "@/app/lib/hooks";
 import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { CalendarX2, Clock, VideoIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 
@@ -50,7 +55,7 @@ export default async function BookingFormRoute({
   return (
     <div className="min-h-screen w-screen flex items-center justify-center">
       <Card className="max-w-[1000px] w-full mx-auto">
-        <CardContent className="p-5 md:grid md-grid-cols-[1fr,auto,1fr,auto,1fr]">
+        <CardContent className="p-5 grid md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-4">
           <div>
             <img
               src={data.User?.image as string}
@@ -88,6 +93,10 @@ export default async function BookingFormRoute({
               </p>
             </div>
           </div>
+          <Separator orientation="vertical" className="h-full w-[1px] border-red-500" />
+
+
+          <RendarCalendar />
         </CardContent>
       </Card>
     </div>
