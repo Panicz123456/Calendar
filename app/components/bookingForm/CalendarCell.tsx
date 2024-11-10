@@ -3,6 +3,7 @@ import { mergeProps, useCalendarCell, useFocusRing } from "react-aria";
 import { CalendarState } from "react-stately";
 import {
   CalendarDate,
+  DateValue,
   getLocalTimeZone,
   isSameMonth,
   isToday,
@@ -13,19 +14,19 @@ export function CalendarCell({
   state,
   date,
   currentMonth,
+  isUnavailable,
 }: {
   state: CalendarState;
   date: CalendarDate;
   currentMonth: CalendarDate;
+  isUnavailable?: boolean;
 }) {
   let ref = useRef(null);
   let {
     cellProps,
     buttonProps,
     isSelected,
-    isOutsideVisibleRange,
     isDisabled,
-    isUnavailable,
     formattedDate,
   } = useCalendarCell({ date }, state, ref);
 
@@ -33,6 +34,8 @@ export function CalendarCell({
 
   const isDateToday = isToday(date, getLocalTimeZone());
   const isOutsideOfMonth = !isSameMonth(currentMonth, date);
+
+  const finallyIsDisabled = isDisabled || isUnavailable;
 
   return (
     <td
@@ -47,11 +50,11 @@ export function CalendarCell({
           className={cn(
             "size-full rounded-sm flex items-center justify-center text-sm font-semibold",
 
-            isDisabled ? "text-muted-foreground cursor-not-allowed" : "",
+            finallyIsDisabled ? "text-muted-foreground cursor-not-allowed" : "",
 
             isSelected ? "bg-primary text-white" : "",
 
-            !isSelected && !isDisabled ? "hover:bg-primary/10" : ""
+            !isSelected && !finallyIsDisabled ? "bg-secondary" : ""
           )}>
           {formattedDate}
           {isDateToday && (
