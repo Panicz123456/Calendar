@@ -246,3 +246,7 @@ export async function CreateMeetingAction(formData: FormData) {
   });
   return redirect("/success");
 }
+
+export async function CancelMettingAction() {
+  
+}
