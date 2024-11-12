@@ -1,5 +1,6 @@
 import { Calendar } from "@/app/components/bookingForm/Calendar";
 import { RendarCalendar } from "@/app/components/bookingForm/RenderCalendar";
+import { TimeTable } from "@/app/components/bookingForm/TimeTable";
 import prisma from "@/app/lib/db";
 import { requireUser } from "@/app/lib/hooks";
 import { Card, CardContent } from "@/components/ui/card";
@@ -102,16 +103,16 @@ export default async function BookingFormRoute({
               </p>
             </div>
           </div>
-          <Separator
-            orientation="vertical"
-            className="h-full w-[1px]"
-          />
+          <Separator orientation="vertical" className="h-full w-[1px]" />
 
           <RendarCalendar availability={data.User?.availability as any} />
 
-          <Separator
-            orientation="vertical"
-            className="h-full w-[1px] "
+          <Separator orientation="vertical" className="h-full w-[1px] " />
+
+          <TimeTable
+            duration={data.duration}
+            selectedDate={selectedDate}
+            userName={params.username}
           />
         </CardContent>
       </Card>
