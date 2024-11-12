@@ -145,7 +145,9 @@ export async function TimeTable({
       <div className="mt-3 max-h-[350px] overflow-auto">
         {availableSlots.length > 0 ? (
           availableSlots.map((slot, index) => (
-            <Link href="/" key={index}>
+            <Link
+              href={`?date=${format(selectedDate, "yyyy-MM-dd")}&time=${slot}`}
+              key={index}>
               <Button className="w-full mb-2" variant="outline">
                 {slot}
               </Button>
