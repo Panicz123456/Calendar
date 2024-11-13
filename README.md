@@ -39,4 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 Video inserted by Jan Marshal
 
-demo: https://calendar-patryks-projects-746ea1cd.vercel.app/
+demo: [calendar-fawn-ten.vercel.app](https://calendar-fawn-ten.vercel.app/)
