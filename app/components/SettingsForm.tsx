@@ -15,7 +15,7 @@ import { useFormState } from "react-dom";
 import { SettingsAction } from "../actions";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
-import { aboutSettingsSchema } from "../lib/zodSchema";
+import { settingsSchema } from "../lib/zodSchema";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
@@ -36,7 +36,7 @@ export function SettingsForm({ email, fullName, profileImage }: iAppProps) {
 
     onValidate({ formData }) {
       return parseWithZod(formData, {
-        schema: aboutSettingsSchema,
+        schema: settingsSchema,
       });
     },
     shouldValidate: "onBlur",
