@@ -1,4 +1,4 @@
-import { CreateMeetingAction } from "@/app/actions";
+import { createMeetingAction } from "@/app/actions";
 import { Calendar } from "@/app/components/bookingForm/Calendar";
 import { RendarCalendar } from "@/app/components/bookingForm/RenderCalendar";
 import { TimeTable } from "@/app/components/bookingForm/TimeTable";
@@ -115,7 +115,7 @@ export default async function BookingFormRoute({
 
             <form
               className="flex flex-col gap-y-4"
-              action={CreateMeetingAction}>
+              action={createMeetingAction}>
               <input type="hidden" name="fromTime" value={searchParams.time} />
               <input type="hidden" name="eventDate" value={searchParams.date} />
               <input type="hidden" name="meetingLength" value={data.duration} />
