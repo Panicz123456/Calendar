@@ -5,6 +5,6 @@ export async function GET() {
   const authUrl = nylas.auth.urlForOAuth2({
     clientId: NylasConfig.clientId as string,
     redirectUri: NylasConfig.redirectUri,
-  });
+  })
   return redirect(authUrl);
 }
