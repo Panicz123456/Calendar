@@ -11,5 +11,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Google({ allowDangerousEmailAccountLinking: true }),
   ],
   secret: process.env.AUTH_SECRET,
-  session: { strategy: "jwt" },
 });
